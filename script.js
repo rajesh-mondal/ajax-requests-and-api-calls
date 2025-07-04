@@ -87,3 +87,12 @@ document.getElementById('axios-post').addEventListener('click', async function (
     const result = response.data
     console.table(result)
 })
+
+document.getElementById('axios-country').addEventListener('click', async function(){
+    const api = 'https://restcountries.com/v3.1/name/bangladesh?fields=name,capital,population,currencies';
+    const response = await axios.get(api);
+    const data = response.data[0];
+    console.log(data);
+    const output = `The capital of Bangladesh is ${data.capital[0]}, population ${data.population} and currency is ${data.currencies.BDT.name}`;
+    console.log(output);
+})
